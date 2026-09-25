@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Yur Collection | Price List Fashion Hijab Premium</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdf7f2',
+                            100: '#f9eee4',
+                            200: '#f2dac9',
+                            300: '#e6be9f',
+                            400: '#d59b72',
+                            500: '#c57c4c',
+                            600: '#a35532',
+                            700: '#7d3a24',
+                            800: '#622b1f',
+                            900: '#4c221a',
+                        },
+                        maroon: {
+                            DEFAULT: '#721b29',
+                            dark: '#54111d',
+                            light: '#8e2738',
+                            soft: '#a63c4f'
+                        },
+                        gold: {
+                            DEFAULT: '#c59b27',
+                            light: '#e3be53',
+                            soft: '#f7e7b6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        script: ['Alex Brush', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fcf9f5;
+            color: #332623;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .font-script {
+            font-family: 'Alex Brush', cursive;
+        }
+
+        .font-serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Pattern overlay */
+        .bg-pattern {
+            background-image: radial-gradient(#d59b72 0.75px, transparent 0.75px), radial-gradient(#d59b72 0.75px, #fdf7f2 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.15;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 202, 183, 0.5);
+        }
+
+        /* Hide scrollbar for clean horizontal scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .badge-pulse {
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(114, 27, 41, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(114, 27, 41, 0); }
+        }
+    </style>
+</head>
+<body class="pb-24 md:pb-12">
+
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 z-40 w-full glass-card border-b border-brand-200/60 shadow-sm">
+        <div class="max-w-md md:max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-full bg-maroon flex items-center justify-center text-white shadow-md font-serif-title font-bold text-xl">
+                    Y
+                </div>
+                <div>
+                    <h1 class="font-script text-2xl text-maroon leading-none -mb-1">Yur Collection</h1>
+                    <p class="text-[10px] tracking-widest text-brand-700 uppercase font-semibold">Fashion Hijab</p>
+                </div>
+            </div>
+
+            <!-- Quick Action Icons -->
+            <div class="flex items-center gap-2">
+                <button onclick="toggleCalculatorModal()" class="flex items-center gap-1.5 bg-brand-100 hover:bg-brand-200 text-maroon text-xs font-semibold px-3 py-1.5 rounded-full transition">
+                    <i class="fa-solid font-bold fa-calculator text-maroon"></i>
+                    <span class="hidden sm:inline">Kalkulator</span>
+                </button>
+                <button onclick="openCartModal()" class="relative bg-maroon hover:bg-maroon-dark text-white p-2 rounded-full w-9 h-9 flex items-center justify-center shadow-md transition">
+                    <i class="fa-solid fa-shopping-bag text-sm"></i>
+                    <span id="cartCountBadge" class="hidden absolute -top-1 -right-1 bg-gold text-maroon font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-brand-50 via-white to-brand-50 pt-6 pb-8 border-b border-brand-100">
+        <div class="absolute inset-0 bg-pattern pointer-events-none"></div>
+        <div class="max-w-md md:max-w-5xl mx-auto px-4 relative z-10 text-center">
+            
+            <span class="inline-block px-3 py-1 bg-maroon/10 text-maroon rounded-full text-xs font-semibold tracking-wide mb-2">
+                ✨ Katalog & Daftar Harga Resmi
+            </span>
+
+            <h2 class="font-serif-title text-3xl sm:text-4xl text-maroon font-bold tracking-tight mb-1">
+                PRICE LIST
+            </h2>
+            <p class="font-script text-2xl sm:text-3xl text-brand-700 mb-3">
+                "Hijab untuk Setiap Langkah Indahmu"
+            </p>
+            <p class="text-xs sm:text-sm text-gray-600 max-w-lg mx-auto mb-6">
+                Hijab Berkualitas, Tampil Lebih Percaya Diri dengan Pilihan Motif & Warna Elegan Lengkap!
+            </p>
+
+            <!-- Value Propositions Badges -->
+            <div class="grid grid-cols-3 gap-2 sm:gap-4 max-w-md mx-auto">
+                <div class="bg-white/90 p-2.5 rounded-xl border border-brand-200/80 shadow-sm flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full bg-brand-100 text-maroon flex items-center justify-center mb-1.5 text-sm">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <span class="text-[11px] font-semibold text-gray-800">Bahan Premium</span>
+                </div>
+                <div class="bg-white/90 p-2.5 rounded-xl border border-brand-200/80 shadow-sm flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full bg-brand-100 text-maroon flex items-center justify-center mb-1.5 text-sm">
+                        <i class="fa-solid fa-[#fa6] fa-scissors"></i>
+                    </div>
+                    <span class="text-[11px] font-semibold text-gray-800">Jahitan Rapi</span>
+                </div>
+                <div class="bg-white/90 p-2.5 rounded-xl border border-brand-200/80 shadow-sm flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full bg-brand-100 text-maroon flex items-center justify-center mb-1.5 text-sm">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <span class="text-[11px] font-semibold text-gray-800">Warna Lengkap</span>
+                </div>
+            </div>
+
+            <!-- Important Note Banner -->
+            <div class="mt-5 inline-flex items-center gap-2 bg-gold-soft/80 border border-gold/40 text-maroon-dark px-4 py-2 rounded-xl text-xs font-medium shadow-sm">
+                <i class="fa-solid fa-crown text-gold"></i>
+                <span><strong>Catatan Grosir:</strong> Harga <b>Partai</b> berlaku untuk pembelian di atas <b>25 Kodi</b> (1 Kodi = 20 pcs).</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Filter & Search Section -->
+    <main class="max-w-md md:max-w-5xl mx-auto px-4 py-6">
+        
+        <!-- Controls Header -->
+        <div class="flex flex-col sm:flex-row gap-3 items-center justify-between mb-6">
+            
+            <!-- Category Tabs -->
+            <div class="flex items-center gap-1.5 overflow-x-auto w-full no-scrollbar pb-1 sm:pb-0">
+                <button onclick="filterCategory('all')" class="cat-btn active px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition bg-maroon text-white shadow-sm" data-cat="all">
+                    Semua Hijab
+                </button>
+                <button onclick="filterCategory('kerudung')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition bg-white text-gray-700 border border-gray-200 hover:bg-brand-50" data-cat="kerudung">
+                    Kerudung Segiempat
+                </button>
+                <button onclick="filterCategory('pashmina')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition bg-white text-gray-700 border border-gray-200 hover:bg-brand-50" data-cat="pashmina">
+                    Pashmina
+                </button>
+                <button onclick="filterCategory('jumbo')" class="cat-btn px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition bg-white text-gray-700 border border-gray-200 hover:bg-brand-50" data-cat="jumbo">
+                    Jumbo & Premium
+                </button>
+            </div>
+
+            <!-- Price Mode Switcher (Ecer / Kodi / Partai) -->
+            <div class="w-full sm:w-auto flex items-center justify-between sm:justify-end gap-2 bg-white p-1 rounded-xl border border-gray-200 shadow-sm text-xs">
+                <span class="text-gray-500 font-medium pl-2">Tampil:</span>
+                <div class="flex gap-1">
+                    <button onclick="setPriceDisplay('all')" class="price-tab active px-2.5 py-1 rounded-lg font-semibold bg-brand-100 text-maroon" data-mode="all">
+                        Lengkap
+                    </button>
+                    <button onclick="setPriceDisplay('ecer')" class="price-tab px-2.5 py-1 rounded-lg font-semibold text-gray-600 hover:bg-gray-100" data-mode="ecer">
+                        Eceran
+                    </button>
+                    <button onclick="setPriceDisplay('kodi')" class="price-tab px-2.5 py-1 rounded-lg font-semibold text-gray-600 hover:bg-gray-100" data-mode="kodi">
+                        Grosir Kodi
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <!-- Items generated via JavaScript -->
+        </div>
+
+    </main>
+
+    <!-- Reseller Benefits Section -->
+    <section class="max-w-md md:max-w-5xl mx-auto px-4 my-8">
+        <div class="bg-gradient-to-br from-maroon to-maroon-dark rounded-2xl p-6 text-white shadow-lg relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-white text-9xl">
+                <i class="fa-solid fa-store"></i>
+            </div>
+            <div class="relative z-10 sm:flex items-center justify-between gap-6">
+                <div class="mb-4 sm:mb-0">
+                    <span class="bg-gold text-maroon-dark text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full mb-2 inline-block">
+                        Peluang Usaha Reseller & Agent
+                    </span>
+                    <h3 class="font-serif-title text-2xl font-bold text-white mb-1">
+                        Tertarik Ambil Partai Besar (>25 Kodi)?
+                    </h3>
+                    <p class="text-xs text-brand-100 max-w-md">
+                        Dapatkan harga partai termurah langsung dari konveksi/distributor dengan pilihan warna bebas request & fasilitas pengiriman via cargo hemat!
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-2 shrink-0">
+                    <button onclick="openWhatsApp('Halo Yur Collection, saya mau tanya harga khusus pembelian Partai Besar (>25 kodi)...')" class="bg-gold hover:bg-gold-light text-maroon-dark font-bold text-xs px-5 py-3 rounded-xl shadow-md transition flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Chat Admin Partai</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info & FAQ Section -->
+    <section class="max-w-md md:max-w-5xl mx-auto px-4 my-8">
+        <h3 class="font-serif-title text-xl font-bold text-maroon mb-4 text-center">
+            Informasi & Pertanyaan Umum
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+            <div class="bg-white p-4 rounded-xl border border-brand-200/80 shadow-sm">
+                <div class="font-bold text-maroon mb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-info text-brand-500"></i>
+                    Berapa isi 1 Kodi Kerudung?
+                </div>
+                <p class="text-gray-600">1 Kodi berisi <strong>20 Pcs kerudung</strong>. Pengambilan kodi bisa langsung dicampur seri warna menarik pilihan Yur Collection.</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-brand-200/80 shadow-sm">
+                <div class="font-bold text-maroon mb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-truck-fast text-brand-500"></i>
+                    Sistem Pengiriman & Expedisi
+                </div>
+                <p class="text-gray-600">Kami melayani pengiriman ke seluruh Indonesia menggunakan JNE, J&T, Sicepat, Indah Cargo, Lion Parcel, dan Dakota Cargo untuk partai besar.</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-brand-200/80 shadow-sm">
+                <div class="font-bold text-maroon mb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-box-open text-brand-500"></i>
+                    Apakah Bisa Beli Eceran?
+                </div>
+                <p class="text-gray-600">Sangat bisa! Pembelian eceran melayani minimal 1 pcs tanpa syarat. Cocok untuk koleksi pribadi atau gift.</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-brand-200/80 shadow-sm">
+                <div class="font-bold text-maroon mb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-headset text-brand-500"></i>
+                    Cara Order Tercepat
+                </div>
+                <p class="text-gray-600">Klik tombol "Tambah Order" pada produk yang diinginkan, atau gunakan Kalkulator Order di bawah untuk pesan otomatis via WhatsApp.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Fixed Bottom Action Bar -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-brand-200 px-4 py-2.5 shadow-lg">
+        <div class="max-w-md mx-auto flex items-center justify-between gap-3">
+            <button onclick="toggleCalculatorModal()" class="flex-1 bg-brand-100 hover:bg-brand-200 text-maroon py-2.5 px-3 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition">
+                <i class="fa-solid fa-calculator text-sm"></i>
+                <span>Kalkulator Order</span>
+            </button>
+            
+            <button onclick="openCartModal()" class="flex-1 bg-maroon hover:bg-maroon-dark text-white py-2.5 px-3 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 shadow-md transition">
+                <i class="fa-brands fa-whatsapp text-base text-green-400"></i>
+                <span>Pesan Sekarang (<span id="mobileCartItemCount">0</span>)</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Calculator Modal -->
+    <div id="calculatorModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity">
+        <div class="bg-white w-full max-w-md rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+            <div class="bg-maroon px-5 py-4 text-white flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-calculator text-gold text-lg"></i>
+                    <h3 class="font-serif-title font-bold text-lg">Kalkulator Order & Hemat</h3>
+                </div>
+                <button onclick="toggleCalculatorModal()" class="text-white/80 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="p-5 overflow-y-auto space-y-4 text-xs">
+                <div>
+                    <label class="block font-semibold text-gray-700 mb-1">Pilih Produk Hijab:</label>
+                    <select id="calcProductSelect" onchange="updateCalcEstimation()" class="w-full bg-brand-50 border border-brand-200 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-maroon font-medium">
+                        <!-- Options generated dynamically -->
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-gray-700 mb-1">Tipe Pembelian:</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="calcType" value="ecer" checked onchange="updateCalcEstimation()" class="peer hidden">
+                            <div class="p-2 border rounded-xl text-center peer-checked:bg-maroon peer-checked:text-white peer-checked:border-maroon font-semibold transition">
+                                Eceran (Pcs)
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="calcType" value="kodi" onchange="updateCalcEstimation()" class="peer hidden">
+                            <div class="p-2 border rounded-xl text-center peer-checked:bg-maroon peer-checked:text-white peer-checked:border-maroon font-semibold transition">
+                                Kodi (1 Kodi)
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="calcType" value="partai" onchange="updateCalcEstimation()" class="peer hidden">
+                            <div class="p-2 border rounded-xl text-center peer-checked:bg-maroon peer-checked:text-white peer-checked:border-maroon font-semibold transition">
+                                Partai (>25 Kodi)
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-gray-700 mb-1">Jumlah (<span id="calcUnitLabel">Pcs</span>):</label>
+                    <div class="flex items-center border border-brand-200 rounded-xl overflow-hidden bg-white">
+                        <button onclick="adjustCalcQty(-1)" class="px-3 py-2 bg-brand-100 text-maroon font-bold text-base hover:bg-brand-200">-</button>
+                        <input type="number" id="calcQty" value="1" min="1" oninput="updateCalcEstimation()" class="w-full text-center font-bold text-sm focus:outline-none">
+                        <button onclick="adjustCalcQty(1)" class="px-3 py-2 bg-brand-100 text-maroon font-bold text-base hover:bg-brand-200">+</button>
+                    </div>
+                </div>
+
+                <!-- Calculation Summary Box -->
+                <div class="bg-brand-50 border border-brand-200/80 rounded-xl p-4 space-y-2">
+                    <div class="flex justify-between text-gray-600">
+                        <span>Harga Satuan/Unit:</span>
+                        <span id="calcUnitPrice" class="font-semibold text-gray-800">Rp 0</span>
+                    </div>
+                    <div class="flex justify-between text-gray-600">
+                        <span>Total Pcs Kerudung:</span>
+                        <span id="calcTotalPcs" class="font-semibold text-gray-800">0 Pcs</span>
+                    </div>
+                    <div class="flex justify-between text-gray-600 border-t border-brand-200 pt-2">
+                        <span class="font-bold text-gray-800 text-sm">Total Estimasi:</span>
+                        <span id="calcTotalPrice" class="font-bold text-maroon text-base">Rp 0</span>
+                    </div>
+                    <div id="calcSavingsBadge" class="hidden bg-green-100 text-green-800 p-2 rounded-lg text-[11px] font-semibold text-center border border-green-200">
+                        🎉 Hemat hingga <span id="calcSavingsAmount">Rp 0</span> dibanding beli Eceran!
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2">
+                <button onclick="addCalcToCart()" class="flex-1 bg-maroon hover:bg-maroon-dark text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <span>Masuk Keranjang Order</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cartModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 transition-opacity">
+        <div class="bg-white w-full max-w-md rounded-t-2xl sm:rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[85vh] sm:max-h-[90vh]">
+            <div class="bg-maroon px-5 py-4 text-white flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-shopping-bag text-gold text-lg"></i>
+                    <h3 class="font-serif-title font-bold text-lg">Daftar Pesanan Anda</h3>
+                </div>
+                <button onclick="closeCartModal()" class="text-white/80 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="cartItemsContainer" class="p-4 overflow-y-auto flex-1 space-y-3 divide-y divide-gray-100 text-xs">
+                <!-- Cart items or empty state -->
+            </div>
+
+            <!-- Total & Checkout Form -->
+            <div class="p-4 bg-brand-50 border-t border-brand-200/80 space-y-3">
+                <div class="flex items-center justify-between font-bold text-sm">
+                    <span class="text-gray-700">Total Ringkasan:</span>
+                    <span id="cartGrandTotal" class="text-maroon text-base font-extrabold">Rp 0</span>
+                </div>
+
+                <div class="space-y-2 text-xs">
+                    <input type="text" id="buyerName" placeholder="Nama Lengkap Pembeli" class="w-full bg-white border border-gray-300 rounded-xl p-2.5 focus:ring-2 focus:ring-maroon focus:outline-none">
+                    <input type="text" id="buyerCity" placeholder="Kota / Kecamatan Tujuan Kirim" class="w-full bg-white border border-gray-300 rounded-xl p-2.5 focus:ring-2 focus:ring-maroon focus:outline-none">
+                </div>
+
+                <button onclick="sendWhatsAppOrder()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs sm:text-sm">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Kirim Pesanan Langsung ke WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data Hijab berdasarkan Price List Resmi Yur Collection
+        const hijabData = [
+            {
+                id: 'motif',
+                name: 'Kerudung Motif',
+                category: 'kerudung',
+                tag: 'Best Seller',
+                img: '524.BUNGA RINTIK.png,
+                prices: {
+                    ecer: 18000,
+                    kodi: 340000,
+                    partai: 320000
+                },
+                desc: 'Bahan berkualitas tinggi dengan motif bunga & vintage elegan yang cantik dan tidak menerawang.'
+            },
+            {
+                id: 'polos',
+                name: 'Kerudung Polos',
+                category: 'kerudung',
+                tag: 'Favorit Harian',
+                img: 'VOAL TITANIUM.04.png,
+                prices: {
+                    ecer: 15000,
+                    kodi: 240000,
+                    partai: 220000
+                },
+                desc: 'Kerudung polos simpel dengan tekstur kain lembut, adem, dan mudah dibentuk sepanjang hari.'
+            },
+            {
+                id: 'paris',
+                name: 'Kerudung Paris',
+                category: 'kerudung',
+                tag: 'Klasik Elegan',
+                img: 'PARIS.02.png,
+                prices: {
+                    ecer: 17500,
+                    kodi: 260000,
+                    partai: 240000
+                },
+                desc: 'Bahan Paris Premium yang tegak di dahi, ringan, serta nyaman dipakai formal maupun harian.'
+            },
+            {
+                id: 'plain',
+                name: 'Kerudung Plain',
+                category: 'kerudung',
+                tag: 'Hemat Banget',
+                img: 'PLAIN TITANIUM SQUARE.png',
+                prices: {
+                    ecer: 12500,
+                    kodi: 210000,
+                    partai: 195000
+                },
+                desc: 'Koleksi plain basic ekonomis dengan kualitas serat halus dan banyak pilihan warna pastel.'
+            },
+            {
+                id: 'pashmina',
+                name: 'Pashmina Viscos, Ceruty, Cradenza',
+                category: 'pashmina',
+                tag: 'Tren Kekinian',
+                img: 'Viscose bamboo.yur,
+                prices: {
+                    ecer: 25000,
+                    kodi: 450000,
+                    partai: 400000
+                },
+                desc: 'Pashmina bermutu tinggi bertekstur lembut, jatuh mewah, flowy & gampang di-style.'
+            },
+            {
+                id: 'standar-premium',
+                name: 'Standar Premium',
+                category: 'jumbo',
+                tag: 'Kualitas Premium',
+                img: 'KATALOG VOAL TITANIUM SJP (4000 x 5000 piksel).png',
+                prices: {
+                    ecer: 25000,
+                    kodi: 450000,
+                    partai: 430000
+                },
+                desc: 'Ukuran standar dengan bahan kain grade A+, terasa sangat lembut dan tidak panas.'
+            },
+            {
+                id: 'jumbo-premium',
+                name: 'Jumbo Premium',
+                category: 'jumbo',
+                tag: 'Ukuran Syari / Jumbo',
+                img: 'YUR_AI_Studio_1790045530098.png,
+                prices: {
+                    ecer: 35000,
+                    kodi: 600000,
+                    partai: 570000
+                },
+                desc: 'Potongan jumbo yang menutup dada dengan sempurna, tampil syari namun tetap modis.'
+            }
+        ];
+
+        // Global State
+        let currentCategory = 'all';
+        let currentPriceMode = 'all';
+        let cart = [];
+
+        // Helper Format Currency Rupiah
+        function formatRupiah(number) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(number);
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+
+            const filtered = hijabData.filter(item => {
+                if (currentCategory === 'all') return true;
+                return item.category === currentCategory;
+            });
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "glass-card rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between border border-brand-200/80";
+
+                card.innerHTML = `
+                    <div>
+                        <!-- Product Image & Tag -->
+                        <div class="relative h-48 w-full overflow-hidden bg-gray-100">
+                            <img src="${item.img}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/721b29/ffffff?text=${encodeURIComponent(item.name)}'">
+                            <span class="absolute top-2.5 left-2.5 bg-maroon text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
+                                ${item.tag}
+                            </span>
+                        </div>
+
+                        <!-- Info -->
+                        <div class="p-4">
+                            <h3 class="font-serif-title text-lg font-bold text-gray-800 leading-snug mb-1">
+                                ${item.name}
+                            </h3>
+                            <p class="text-xs text-gray-500 mb-4 line-clamp-2">
+                                ${item.desc}
+                            </p>
+
+                            <!-- Price Badges Matrix -->
+                            <div class="space-y-1.5 text-xs">
+                                ${(currentPriceMode === 'all' || currentPriceMode === 'ecer') ? `
+                                    <div class="flex items-center justify-between p-2 rounded-lg bg-brand-50/80 border border-brand-200/50">
+                                        <span class="font-semibold text-gray-600">Eceran</span>
+                                        <span class="font-bold text-maroon">${formatRupiah(item.prices.ecer)} <span class="text-[10px] font-normal text-gray-500">/pcs</span></span>
+                                    </div>
+                                ` : ''}
+
+                                ${(currentPriceMode === 'all' || currentPriceMode === 'kodi') ? `
+                                    <div class="flex items-center justify-between p-2 rounded-lg bg-white border border-gray-200">
+                                        <span class="font-semibold text-gray-600">Grosir Kodi <span class="text-[10px] font-normal text-gray-400">(20 pcs)</span></span>
+                                        <span class="font-bold text-gray-900">${formatRupiah(item.prices.kodi)} <span class="text-[10px] font-normal text-gray-500">/kodi</span></span>
+                                    </div>
+                                ` : ''}
+
+                                ${(currentPriceMode === 'all' || currentPriceMode === 'kodi') ? `
+                                    <div class="flex items-center justify-between p-2 rounded-lg bg-gold-soft/50 border border-gold/30">
+                                        <span class="font-semibold text-maroon-dark">Partai <span class="text-[10px] text-maroon-dark/70">(>25 kodi)</span></span>
+                                        <span class="font-bold text-maroon-dark">${formatRupiah(item.prices.partai)} <span class="text-[10px] font-normal text-gray-600">/kodi</span></span>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="p-4 pt-0 grid grid-cols-2 gap-2 mt-2">
+                        <button onclick="quickOrderModal('${item.id}')" class="w-full bg-brand-100 hover:bg-brand-200 text-maroon font-bold py-2 px-2 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-calculator"></i>
+                            <span>Hitung</span>
+                        </button>
+                        <button onclick="quickAddToCart('${item.id}')" class="w-full bg-maroon hover:bg-maroon-dark text-white font-bold py-2 px-2 rounded-xl text-xs shadow-sm transition flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>+ Order</span>
+                        </button>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if (btn.getAttribute('data-cat') === cat) {
+                    btn.className = "cat-btn active px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition bg-maroon text-white shadow-sm";
+                } else {
+                    btn.className = "cat-btn px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition bg-white text-gray-700 border border-gray-200 hover:bg-brand-50";
+                }
+            });
+            renderProducts();
+        }
+
+        function setPriceDisplay(mode) {
+            currentPriceMode = mode;
+            document.querySelectorAll('.price-tab').forEach(btn => {
+                if (btn.getAttribute('data-mode') === mode) {
+                    btn.className = "price-tab active px-2.5 py-1 rounded-lg font-semibold bg-brand-100 text-maroon";
+                } else {
+                    btn.className = "price-tab px-2.5 py-1 rounded-lg font-semibold text-gray-600 hover:bg-gray-100";
+                }
+            });
+            renderProducts();
+        }
+
+        // Populate Calculator Dropdown Options
+        function initCalcDropdown() {
+            const select = document.getElementById('calcProductSelect');
+            select.innerHTML = '';
+            hijabData.forEach(item => {
+                const opt = document.createElement('option');
+                opt.value = item.id;
+                opt.textContent = `${item.name} (Ecer: ${formatRupiah(item.prices.ecer)})`;
+                select.appendChild(opt);
+            });
+        }
+
+        function toggleCalculatorModal() {
+            const modal = document.getElementById('calculatorModal');
+            modal.classList.toggle('hidden');
+            if (!modal.classList.contains('hidden')) {
+                updateCalcEstimation();
+            }
+        }
+
+        function adjustCalcQty(delta) {
+            const input = document.getElementById('calcQty');
+            let val = parseInt(input.value) || 1;
+            val = Math.max(1, val + delta);
+            input.value = val;
+            updateCalcEstimation();
+        }
+
+        function updateCalcEstimation() {
+            const prodId = document.getElementById('calcProductSelect').value;
+            const item = hijabData.find(h => h.id === prodId);
+            if (!item) return;
+
+            const calcType = document.querySelector('input[name="calcType"]:checked').value;
+            const qty = parseInt(document.getElementById('calcQty').value) || 1;
+
+            let unitPrice = 0;
+            let totalPcs = 0;
+            let totalPrice = 0;
+            let calcUnitLabel = 'Pcs';
+
+            if (calcType === 'ecer') {
+                unitPrice = item.prices.ecer;
+                totalPcs = qty;
+                totalPrice = qty * unitPrice;
+                calcUnitLabel = 'Pcs';
+            } else if (calcType === 'kodi') {
+                unitPrice = item.prices.kodi;
+                totalPcs = qty * 20;
+                totalPrice = qty * unitPrice;
+                calcUnitLabel = 'Kodi';
+            } else if (calcType === 'partai') {
+                unitPrice = item.prices.partai;
+                totalPcs = qty * 20;
+                totalPrice = qty * unitPrice;
+                calcUnitLabel = 'Kodi';
+            }
+
+            document.getElementById('calcUnitLabel').textContent = calcUnitLabel;
+            document.getElementById('calcUnitPrice').textContent = `${formatRupiah(unitPrice)} / ${calcUnitLabel}`;
+            document.getElementById('calcTotalPcs').textContent = `${totalPcs} Pcs Hijab`;
+            document.getElementById('calcTotalPrice').textContent = formatRupiah(totalPrice);
+
+            // Savings calculation compared to buying eceran
+            const ecerEquivalent = totalPcs * item.prices.ecer;
+            const savings = ecerEquivalent - totalPrice;
+            const savingsBadge = document.getElementById('calcSavingsBadge');
+
+            if (savings > 0 && calcType !== 'ecer') {
+                savingsBadge.classList.remove('hidden');
+                document.getElementById('calcSavingsAmount').textContent = formatRupiah(savings);
+            } else {
+                savingsBadge.classList.add('hidden');
+            }
+        }
+
+        function quickOrderModal(id) {
+            document.getElementById('calcProductSelect').value = id;
+            toggleCalculatorModal();
+        }
+
+        function addCalcToCart() {
+            const prodId = document.getElementById('calcProductSelect').value;
+            const item = hijabData.find(h => h.id === prodId);
+            const calcType = document.querySelector('input[name="calcType"]:checked').value;
+            const qty = parseInt(document.getElementById('calcQty').value) || 1;
+
+            let unitPrice = item.prices.ecer;
+            let unitName = 'Pcs';
+            let totalPcs = qty;
+
+            if (calcType === 'kodi') {
+                unitPrice = item.prices.kodi;
+                unitName = 'Kodi';
+                totalPcs = qty * 20;
+            } else if (calcType === 'partai') {
+                unitPrice = item.prices.partai;
+                unitName = 'Kodi (Partai)';
+                totalPcs = qty * 20;
+            }
+
+            const cartItem = {
+                id: item.id,
+                name: item.name,
+                type: calcType,
+                unitName: unitName,
+                qty: qty,
+                totalPcs: totalPcs,
+                unitPrice: unitPrice,
+                totalPrice: qty * unitPrice
+            };
+
+            cart.push(cartItem);
+            updateCartUI();
+            toggleCalculatorModal();
+            openCartModal();
+        }
+
+        function quickAddToCart(id) {
+            const item = hijabData.find(h => h.id === id);
+            cart.push({
+                id: item.id,
+                name: item.name,
+                type: 'ecer',
+                unitName: 'Pcs',
+                qty: 1,
+                totalPcs: 1,
+                unitPrice: item.prices.ecer,
+                totalPrice: item.prices.ecer
+            });
+            updateCartUI();
+            openCartModal();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cartCountBadge');
+            const mobileBadge = document.getElementById('mobileCartItemCount');
+            const totalCount = cart.length;
+
+            if (totalCount > 0) {
+                badge.classList.remove('hidden');
+                badge.textContent = totalCount;
+            } else {
+                badge.classList.add('hidden');
+            }
+            mobileBadge.textContent = totalCount;
+
+            // Render Cart Container
+            const container = document.getElementById('cartItemsContainer');
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-gray-400">
+                        <i class="fa-solid fa-basket-shopping text-3xl mb-2"></i>
+                        <p>Keranjang pesanan masih kosong.</p>
+                    </div>
+                `;
+                document.getElementById('cartGrandTotal').textContent = 'Rp 0';
+                return;
+            }
+
+            let grandTotal = 0;
+            cart.forEach((cItem, idx) => {
+                grandTotal += cItem.totalPrice;
+                const row = document.createElement('div');
+                row.className = "pt-3 first:pt-0 flex items-center justify-between gap-2";
+                row.innerHTML = `
+                    <div class="flex-1">
+                        <h4 class="font-bold text-gray-800">${cItem.name}</h4>
+                        <p class="text-gray-500 text-[11px]">
+                            ${cItem.qty} ${cItem.unitName} (${cItem.totalPcs} Pcs) x ${formatRupiah(cItem.unitPrice)}
+                        </p>
+                    </div>
+                    <div class="text-right">
+                        <span class="font-bold text-maroon block">${formatRupiah(cItem.totalPrice)}</span>
+                        <button onclick="removeFromCart(${idx})" class="text-red-500 text-[11px] hover:underline">
+                            <i class="fa-solid fa-trash-can"></i> Hapus
+                        </button>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+
+            document.getElementById('cartGrandTotal').textContent = formatRupiah(grandTotal);
+        }
+
+        function openCartModal() {
+            document.getElementById('cartModal').classList.remove('hidden');
+        }
+
+        function closeCartModal() {
+            document.getElementById('cartModal').classList.add('hidden');
+        }
+
+        function sendWhatsAppOrder() {
+            if (cart.length === 0) {
+                alert('Keranjang order Anda masih kosong!');
+                return;
+            }
+
+            const name = document.getElementById('buyerName').value.trim() || 'Pembeli Yur Collection';
+            const city = document.getElementById('buyerCity').value.trim() || 'Indonesia';
+
+            let msg = `Halo *Yur Collection - Fashion Hijab* ✨\n\nSaya mau memesan kerudung dengan rincian berikut:\n\n`;
+            msg += `👤 *Nama:* ${name}\n📍 *Tujuan Kirim:* ${city}\n\n*DAFTAR PESANAN:*`;
+
+            let total = 0;
+            cart.forEach((item, idx) => {
+                total += item.totalPrice;
+                msg += `\n${idx + 1}. *${item.name}*`;
+                msg += `\n   • Jumlah: ${item.qty} ${item.unitName} (${item.totalPcs} pcs)`;
+                msg += `\n   • Subtotal: ${formatRupiah(item.totalPrice)}`;
+            });
+
+            msg += `\n\n---------------------------------`;
+            msg += `\n💰 *TOTAL ESTIMASI:* ${formatRupiah(total)}`;
+            msg += `\n---------------------------------`;
+            msg += `\nMohon info ketersediaan stok warna & total ongkir ya Sis. Terima kasih! ❤️`;
+
+            openWhatsApp(msg);
+        }
+
+        function openWhatsApp(customText) {
+            // Gunakan nomor tujuan default WhatsApp toko (Dapat disesuaikan)
+            const waNumber = '6281234567890'; 
+            const encodedText = encodeURIComponent(customText);
+            window.open(`https://wa.me/${waNumber}?text=${encodedText}`, '_blank');
+        }
+
+        // Initialize Page
+        window.onload = function() {
+            renderProducts();
+            initCalcDropdown();
+            updateCartUI();
+        }
+    </script>
+</body>
+</html>
